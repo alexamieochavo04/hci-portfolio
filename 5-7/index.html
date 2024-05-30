@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Lab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f82cb84bd7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        /* CSS for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/originals/f5/f2/74/f5f27448c036af645c27467c789ad759.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(51, 54, 59, 0.78);
+            padding-top: 20px;
+            transition: transform 0.3s ease;
+            transform: translateX(0);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #dacdcd;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(194, 245, 249, 0.2);
+        }
+
+        .content {
+            margin-left: 260px; /* Same width as the sidebar + some space */
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.full {
+            margin-left: 10px; /* Reduce margin when sidebar is hidden */
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(101, 93, 97, 0.7);
+            border: none;
+            color: rgb(244, 236, 236);
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 1000; /* Ensure it is on top of other elements */
+        }
+
+        .glow {
+            font-size: 25px;
+            color: #fff;
+            text-align: center;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+
+        .sidebar-bottom {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar-bottom img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .navbar-custom {
+            background-color: rgba(51, 54, 59, 0.78);
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav .nav-link {
+            color: #dacdcd;
+        }
+
+        .navbar-custom .navbar-nav .nav-link:hover {
+            background-color: rgba(194, 245, 249, 0.2);
+        }
+
+        .portfolio-link {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(51, 54, 59, 0.78);
+        }
+
+        .portfolio-link a {
+            color: #dacdcd;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .portfolio-link a:hover {
+            background-color: rgba(194, 245, 249, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            border: 2px solid rgba(194, 245, 249, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(51, 54, 59, 0.8);
+            margin-top: 10px;
+        }
+
+        .contact-section h1 {
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-footer {
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(51, 54, 59, 0.9);
+        }
+
+        .sidebar-footer p {
+            margin: 0;
+            color: #dacdcd;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-center flex-grow-1">
+                <ul class="pagination mb-0">
+                    <li class="page-item">
+                        <a class="page-link" href="contactform.html" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="login.html">1</a></li>
+                    <li class="page-item"><a class="page-link" href="register.html">2</a></li>
+                    <li class="page-item"><a class="page-link" href="contactform.html">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="chart.html" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <form class="d-flex" role="search" style="background-color: rgba(194, 245, 249, 0.2);">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(245, 240, 187, 0.2);">
+                <button class="btn btn-outline-success" type="submit" style="background-color: rgba(172, 112, 136, 0.3);">Search</button> 
+            </form>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div>
+            <h1 class="glow">OCHAVO</h1>
+            <a href="index.html">Dashboard</a>
+            <a href="contactform.html">Contact Form</a>
+            <a href="about me.html">About me</a>
+            <a href="table.html">Tables</a>
+            <a href="image.html">Images</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <a href="chart.html">Chart</a>
+        </div>
+        <div class="sidebar-bottom">
+            <img src="https://scontent.fdvo1-1.fna.fbcdn.net/v/t39.30808-6/431765679_1814214019017938_3588226879719219419_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFSfuxevOO9j03D9NEfPZS_jFXFlpd0bSaMVcWWl3RtJlpdYybAmf2gCCroacWRp3t1cumBZDGfBXud9LZ19906&_nc_ohc=Hxn38A-qrPcQ7kNvgHxsgdB&_nc_ht=scontent.fdvo1-1.fna&oh=00_AYBQlhBixUbu6LroTopOJyfyFjQzeb-iPPF6AGEgDXZ8-A&oe=66507B1B" alt="Logo" class="rounded-pill">
+        </div>
+        <div class="sidebar-footer">
+            <p>&copy; 2024 Ochavo. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Content -->
+
+<!-- Navbar -->
+    <!-- Your navbar content here -->
+
+    <!-- Sidebar -->
+    <!-- Your sidebar content here -->
+
+    <!-- Toggle Button -->
+    <!-- Your toggle button content here -->
+
+    <!-- Content -->
+    <div class="content" id="content">
+        <!-- Your content here -->
+    </div>
+
+    <!-- Footer -->
+    <div class="sidebar-footer" style="position: absolute; bottom: 0; width: 100%;">
+        <p>&copy; 2024 Ochavo.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('full');
+        }
+    </script>
+</body>
+</html>

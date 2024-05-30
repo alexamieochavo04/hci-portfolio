@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Lab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+
+  
+<!--NAVBAR START-->
+<nav class="navbar navbar-expand-lg" style="background-color: rgba(246, 163, 157, 0.3);">
+    <div class="container-fluid">
+        <img src="https://scontent.fdvo1-1.fna.fbcdn.net/v/t39.30808-6/431765679_1814214019017938_3588226879719219419_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFSfuxevOO9j03D9NEfPZS_jFXFlpd0bSaMVcWWl3RtJlpdYybAmf2gCCroacWRp3t1cumBZDGfBXud9LZ19906&_nc_ohc=Hxn38A-qrPcQ7kNvgHxsgdB&_nc_ht=scontent.fdvo1-1.fna&oh=00_AYBQlhBixUbu6LroTopOJyfyFjQzeb-iPPF6AGEgDXZ8-A&oe=66507B1B" alt="Logo" style="width:40px;" class="rounded-pill">
+        <h5 class="text-body-emphasis h4">Ochavo</h5>
+        <ul class="nav flex-column">
+            <div class="navbar-nav w-100">
+                <a href="index.html" class="nav-item nav-link active"></i>Dashboard</a>
+                <a href="contactform.html" class="nav-item nav-link"></i>Contact Form</a>
+                <a href="about me.html" class="nav-item nav-link"></i>About me</a>
+                <a href="table.html" class="nav-item nav-link"></i>Tables</a>
+                <a href="image.html" class="nav-item nav-link"></i>Images</a>
+                <a href="login.html" class="nav-item nav-link"></i>Login</a>
+                <a href="register.html" class="nav-item nav-link"></i>Register</a>
+                <a href="chart.html" class="nav-item nav-link"></i>Chart</a>
+
+            <form class="d-flex" role="search" style="background-color: rgba(194, 245, 249, 0.2);">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(245, 240, 187, 0.2);">
+                <button class="btn btn-outline-success"  type="submit" style="background-color: rgba(172, 112, 136, 0.3);">Search</button> 
+            </form>
+        </div>
+    </div>
+</nav>
+<!--NAVBAR END-->
+
+<!--dire ako image-->
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.zoom {
+  padding: 10px;
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+.container img, #gif-container img {
+        opacity: 0.4; /* Set initial opacity */
+        transition: opacity 0.3s ease; /* Add transition effect */
+    }
+
+    .container img:hover, #gif-container img:hover {
+        opacity: 1; /* Change opacity on hover */
+    }
+
+    .arrow {
+        display: none; /* Hide arrow initially */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Antu_arrow-up-right.svg/800px-Antu_arrow-up-right.svg.png');
+        background-size: cover;
+        cursor: pointer;
+    }
+
+    .container:hover .arrow, #gif-container:hover .arrow {
+        display: block; /* Show arrow on hover */
+    }
+
+    /* Default opacity for images */
+    .zoom {
+        transition: opacity 0.3s ease-in-out; /* Add smooth transition */
+    }
+
+    /* Hover effect to reduce opacity */
+    .zoom:hover {
+        opacity: 0.8; /* Adjust the opacity level as needed */
+    }
+
+    /* Make the GIF container transparent */
+    #gif-container img {
+        transition: opacity 0.3s ease-in-out; /* Add smooth transition */
+    }
+
+    #gif-container img:hover {
+        opacity: 0.8; /* Adjust the opacity level as needed */
+    }
+
+    /* Default style for animated GIFs */
+    #gif-container img {
+        width: 300px;
+        height: 200px;
+        transition: opacity 0.3s ease; /* Add transition effect */
+    }
+
+    /* Unique hover effect for the first GIF */
+    #gif-container img:first-child:hover {
+        opacity: 0.8; /* Reduce opacity on hover */
+    }
+
+    /* Unique hover effect for the second GIF */
+    #gif-container img:last-child:hover {
+        opacity: 0.5; /* Reduce opacity on hover */
+    }
+     /* CSS for the body */
+     body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://media.tenor.com/On7nVJgMM7YAAAAC/your-name-kimi-no-na-wa.gif'); /* Replace 'your-animated-gif-url.gif' with the URL of your animated GIF */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Prevent the background from repeating */
+            background-attachment: fixed; /* Fixed background */
+        }
+        .gif-with-text {
+    position: relative;
+    display: inline-block;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Animation */
+.gif-with-text:hover img {
+    animation: border-animation 2s infinite alternate;
+}
+
+@keyframes border-animation {
+    0% {
+        border: 5px solid #ff0000; /* Red border */
+    }
+    50% {
+        border: 5px solid #00ff00; /* Green border */
+    }
+    100% {
+        border: 5px solid #0000ff; /* Blue border */
+    }
+}
+</style>
+
+</style>
+</style>
+</head>
+<body>
+
+</style>
+
+<div class="container mt-3">
+    <span class="badge text-bg-info">My images</span>           
+    <img class="zoom" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/366922586_1693655284407146_1165621168692947357_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGbrHwrVIfZittjWQ2Dj6Ui3WzwaXuJohzdbPBpe4miHOzjValGR0B0oGq3nJ5TrGq2Gc18aTXV9EwwSlWf2vED&_nc_ohc=ZWvvLPIoykEQ7kNvgH0CNTT&_nc_oc=Adhx0dQC4SIfUzNfC4XrwCJdO_-5W1BtLf6y0PCquWgSvKG8bGlCXmosarQt1hjv09g&_nc_ht=scontent.fcgy2-1.fna&oh=00_AYDi-H-VVYXGbocIE9jxVTp4ATPth1WTtYkVL-7YNGN5sQ&oe=66473E45" alt="Image 6">
+    <img class="zoom" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/428231052_1799108787195128_4109028648514356739_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFDuigOStVB1LbK-vTwpmOaicV0bsabEtmJxXRuxpsS2T_-2dbcl_DJ93Jwv-w0YsOGf0gqjKW4JwsyEIF40awB&_nc_ohc=ozalvki69jYQ7kNvgGhgmjD&_nc_ht=scontent.fcgy2-1.fna&oh=00_AYCN00o9410O930CdQPk0FgfR399h5L0SEkPUN9yh7hlfw&oe=66474B55" alt="Image 6">
+    <img class="zoom" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/391528822_1728125564293451_1193761727390508427_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHMd_TPI6Df-zOo5R7rZFoeskIxwaCVf9uyQjHBoJV_20ctpu2c4t51PgYQwiNVuh2QsPQViUThKqkIBLsxzJYC&_nc_ohc=PgHDUCDWQyUQ7kNvgH0JZFT&_nc_ht=scontent.fcgy2-1.fna&oh=00_AYChJqYFuKJQREjzdl0Ncdyqt1TKJoKNpgfr39hNF7BMMg&oe=66472F98" alt="Image 6">
+
+  
+    <div id="gif-container">
+        <div class="gif-with-text">
+            <img class="zoom" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHY4bXhsdWhjOWduMnRjazlydnM2YWxqejZsNWgza3ZuODllNzJmMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7y8gFfTLNbBjtxkHgg/giphy.gif" alt="Animated GIF">
+            <div class="text-overlay">Renjun</div>
+        </div>
+        <div class="gif-with-text">
+            <img class="zoom" src="https://64.media.tumblr.com/11d772de3b29d25dc5e12b1e3738e7de/56444908fed3a271-4c/s540x810/75de5faa5e58f2f3c379d22492c60ae20e617753.gif" alt="Animated GIF">
+            <div class="text-overlay">Sunghoon</div>
+        </div>
+        <div class="gif-with-text">
+            <img class="zoom" src="https://64.media.tumblr.com/2e599184596147f8f0cd296e945b7367/855f66d303cbfcc0-eb/s640x960/de6f647e8473c6dbf7e12555bccf34aca710ca8d.gifv" alt="Animated GIF">
+            <div class="text-overlay">Rafayel</div>
+        </div>
+        <div class="gif-with-text">
+            <img class="zoom" src="https://i.pinimg.com/originals/a9/51/8d/a9518dbfeb49f2c22d06d71b912f7fb1.gif" alt="Animated GIF">
+            <div class="text-overlay">Jaemin Na</div>
+        </div>
+        <!-- Add more gifs with text overlays as needed -->
+    </div>
+    
+    <span class="badge rounded-pill text-bg-dark">Animated gif</span> 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
