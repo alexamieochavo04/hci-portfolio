@@ -1,0 +1,115 @@
+:root {
+ --main-color: lightcoral;
+   padding: 100px;
+}
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ flex-direction: column;
+}
+.hover-button {
+ padding: 10px 20px;
+ border: none;
+ background-color: var(--main-color);
+ color: lightgreen;
+ transition: width 2s, height 4s;
+}
+.hover-button:hover {
+ background-color: lightcoral;
+ width: 300px;
+ height: 300px;
+ transition-timing-function: linear;
+}
+.animation-box {
+ width: 200px;
+ height: 200px;
+ background-color: var(--main-color);
+ margin-top: 50px;
+ animation: box-move 5s infinite linear;
+}
+:root {
+ --main-color: lightskyblue;
+   padding: 100px;
+}
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ flex-direction: column;
+}
+.hover-button {
+ padding: 10px 20px;
+ border: none;
+ background-color: var(--main-color);
+ color: black;
+ transition: width 2s, height 4s;
+}
+.hover-button:hover {
+ background-color: lightpink;
+ width: 300px;
+ height: 300px;
+ transition-timing-function: linear;
+}
+.animation-box {
+ width: 200px;
+ height: 200px;
+ background-color: var(--main-color);
+ margin-top: 50px;
+ animation: box-move 4s infinite alternate;
+ }
+
+.box3{ width: 200px;
+ height: 200px;
+ background-color: var(--main-color);
+ margin-top: 50px;
+}
+
+.animation-box1 {
+ width: 200px;
+ height: 200px;
+ background-color: var(--main-color);
+ margin-top: 50px;
+ animation: box-move1 5s infinite linear;
+}
+
+
+@keyframes box-move1 {
+
+ from {background-color: lightgreen;
+transform: rotate(0deg);
+ }
+ to {background-color: yellow;
+ transform: rotate(-360deg);
+ }
+}
+
+
+
+@keyframes box-move {
+
+ from {background-color: lightblue;
+transform: rotate(0deg);
+ }
+ to {background-color: lightyellow;
+ transform: rotate(360deg);
+ }
+}
+Alexamie Ochavo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>CSS Enhancements Lab</title>
+ <link rel="stylesheet" href="enhancements.css">
+</head>
+<body>
+ <button class="hover-button">Hover Over Me</button>
+ <div class="animation-box"> Animation Box</div>
+ <div class="animation-box1"> Animation Box</div>
+ <div class="box3"> Animation Box</div>
+</body>
+</html>

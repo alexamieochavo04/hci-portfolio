@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #DBE9FA;
+    background-image: url('https://motif-blog-assets.motifphotos.com/motif-blog/wp-content/uploads/2018/12/iStock-902506410_1200x800px-1200x800.jpg?x98050'); /* Add the URL of your background image here */
+    border-radius: 45px;
+    border-style: outset;
+    border-color: #966F33;
+
+}
+
+header {
+    background-color: #778899;
+    color: #ffd700;
+    padding: 60px 100px;
+    text-align: center;
+    border-radius: 45px;
+    border-style: outset;
+    border-color: #E0E5E5;
+
+}
+
+ /* CSS to style the logo */
+  .logo {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Keeps the aspect ratio */
+    float: left;
+  }
+
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+
+nav ul li a {
+    color: #F5F5F5;
+    text-decoration: none;
+}
+
+section {
+    padding: 50px 20px;
+}
+
+footer {
+    background-color: #5E7D7E;
+    color: #C9DFEC;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 45px;
+    border-style: outset;
+    border-color: #FFDAB9;
+}
+
+<div class="navbar">
+/* CSS for the clickable div */
+.clickable-div {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.zoom {
+    background-color: green;
+    transition: transform .2s;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+ }
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: calc(27.30% - 20px);
+    margin: 5px;
+     border-radius: 45px;
+    border-style: outset;
+    border-color: #FFDAB9;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .gallery img {
+        width: calc(50% - 20px);
+    }
+}

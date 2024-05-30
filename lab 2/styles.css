@@ -1,0 +1,48 @@
+/* Flexbox Experimentation */
+.flex-container {
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    background-color: lightskyblue;
+    outline-style: solid;
+    font-weiht: bold;
+   }
+   /* Flexbox items */
+   .flex-item {
+    background-color: lightblue;
+    padding: 30px;
+    margin: 20px;
+    text-align: center;
+    outline-style: insert;
+    width: 1000px;
+    font-size: 20px;
+   }
+   /* Grid Layout Play */
+   .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: row;
+    gap: 60px;
+    background-color: lightcyan;
+    padding: 50px;
+   }
+   /* Grid items */
+   .grid-item {
+    background-color: lightcoral;
+    text-align: center;
+    padding: 30px;
+    outline-style: double;
+  
+   }
+   
+   @media (max-width: 600px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
